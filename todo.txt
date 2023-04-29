@@ -1,0 +1,10 @@
+ - Figure out best way to do physics
+    - probably fix table on xz axis and lock the ball to that plane
+    - apply a fake downward force that makes the ball always move towards bottom of table
+    - ramps should be defined by curves and once the ball enters the start of a ramp it gets "sucked" into the path until it's released
+
+table elements
+    - spinning DK barrels to select direction
+
+
+- upgrades after x amount of deliveries
