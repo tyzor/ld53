@@ -5,6 +5,8 @@
 
 table elements
     - spinning DK barrels to select direction
-
+    - targets will be rockets that take off
 
 - upgrades after x amount of deliveries
+
+- animations for bounce collisions on slings/bumpers
