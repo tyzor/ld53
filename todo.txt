@@ -10,3 +10,9 @@ table elements
 - upgrades after x amount of deliveries
 
 - animations for bounce collisions on slings/bumpers
+
+
+Current Idea for Theme: Hungry Cats!
+- you have to deliver kibble balls to the cats at the top
+- putting wrong color will cause them to spit it back out faster
+- cat hunger meter will continue to go down if they are not fed

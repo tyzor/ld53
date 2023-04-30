@@ -6,12 +6,16 @@ public class BarrelShooter : MonoBehaviour
 {
     enum BarrelState{
         Idle,
-        Loaded
+        Loaded,
+        Cooldown
     }
 
     private BarrelState _state = BarrelState.Idle;
-    [SerializeField] float spinSpeedIdle = 10f;
-    [SerializeField] float spinSpeedLoaded = 20f;
+    [SerializeField] private float spinSpeedIdle = 10f;
+    [SerializeField] private float spinSpeedLoaded = 20f;
+    [SerializeField] private float firePower = 100f; // Force ball is shot at
+    [SerializeField] private float cooldown = 1f; // Number of seconds before barrel can be loaded again
+    private float _currentCooldown = 0f;
 
 
     private GameObject _loadedBall;
@@ -29,12 +33,26 @@ public class BarrelShooter : MonoBehaviour
         if(_state == BarrelState.Idle)
         {
              transform.Rotate ( Vector3.up * ( spinSpeedIdle * Time.deltaTime ) );
-        } else if(_state == BarrelState.Loaded)
+        }  
+        
+        if(_state == BarrelState.Loaded)
         {
             // Still rotate but faster
             transform.Rotate ( Vector3.up * ( spinSpeedLoaded * 2f * Time.deltaTime ) );
 
             // Check if we are pushing both buttons to launch
+            if( (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.L) )
+                || (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.RightControl) ) )
+            {
+                LaunchBall();
+            }
+        }
+
+        if(_state == BarrelState.Cooldown)
+        {
+            _currentCooldown -= Time.deltaTime;
+            if(_currentCooldown <= 0)
+                _state = BarrelState.Idle;
         }
     }
 
@@ -53,5 +71,18 @@ public class BarrelShooter : MonoBehaviour
                 _state = BarrelState.Loaded;
             }
         }
+    }
+
+    void LaunchBall() {
+        if(_loadedBall)
+        {
+            _loadedBall.SetActive(true);
+            _loadedBall.GetComponent<Rigidbody>().velocity = transform.forward * firePower;
+        }
+
+        _currentCooldown = cooldown;
+        _state = BarrelState.Cooldown;
+
+
     }
 }
