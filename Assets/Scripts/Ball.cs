@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
 
     private Rigidbody _rigidBody;
+    [SerializeField] private Vector3 _gravity;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class Ball : MonoBehaviour
     void FixedUpdate() {
 
         // Apply constant gravitational force to bottom of table
-        _rigidBody.AddForce( new Vector3(0,0,-9f), ForceMode.Acceleration ); 
+        _rigidBody.AddForce( _gravity, ForceMode.Acceleration ); 
 
     }
 }

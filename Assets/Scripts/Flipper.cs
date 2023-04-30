@@ -27,7 +27,9 @@ public class Flipper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool bIsFlipping = _clockwise ? Input.GetKey(KeyCode.RightControl) : Input.GetKey(KeyCode.LeftControl);
+        bool bIsFlipping =  (_clockwise && ( Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.L) ) )
+            || (!_clockwise && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.A) ) );
+
         var motor = _hinge.motor;
         if(bIsFlipping)
         {            
