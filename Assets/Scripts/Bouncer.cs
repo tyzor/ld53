@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bouncer : MonoBehaviour
 {
-    [SerializeField] private float _bounceForce = 1000f;
+    [SerializeField] private float _bounceForce = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class Bouncer : MonoBehaviour
             // Draw a different colored ray for every normal in the collision
             foreach (var item in other.contacts)
             {
-                Debug.DrawRay(item.point, item.normal * 100, Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f), 10f);
+                Debug.DrawRay(item.point, -item.normal * 100, Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f), 10f);
             }
         }
     }

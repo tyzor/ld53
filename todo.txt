@@ -16,3 +16,7 @@ Current Idea for Theme: Hungry Cats!
 - you have to deliver kibble balls to the cats at the top
 - putting wrong color will cause them to spit it back out faster
 - cat hunger meter will continue to go down if they are not fed
+
+
+===BUGS===
+Ball may get stuck in places -- need to add a check in Ball.cs to jostle it if it hasn't moved
