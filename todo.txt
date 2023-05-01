@@ -20,3 +20,8 @@ Current Idea for Theme: Hungry Cats!
 
 ===BUGS===
 Ball may get stuck in places -- need to add a check in Ball.cs to jostle it if it hasn't moved
+
+
+
+=== QUESTIONS ===
+What is the proper way to handle state machines with timers between transitions?

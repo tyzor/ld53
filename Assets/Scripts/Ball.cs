@@ -46,8 +46,8 @@ public class Ball : MonoBehaviour
         ballType = type;   
         Material mat = GetComponent<MeshRenderer>().material;
         mat.EnableKeyword("_EMISSION");
-        mat.SetColor("_Color", BallTypeManager.instance.GetColor(ballType));
-        mat.SetColor("_EmissionColor",  BallTypeManager.instance.GetColor(ballType));
+        mat.SetColor("_BaseColor", BallTypeManager.instance.GetColor(ballType));
+        mat.SetColor("_EmissionColor",  BallTypeManager.instance.GetColor(ballType) * .5f);
     }
 
 }

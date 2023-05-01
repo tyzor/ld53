@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private int maxBarrels = 2;
 
     [SerializeField] float maxBallTime = 3f; // Time before spawning another ball
-    [SerializeField] int maxBalls = 10; // Max we can have on the field
+    [SerializeField] int maxBalls = 1; // Max we can have on the field
     private float ballTimer;
 
 
