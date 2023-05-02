@@ -440,7 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eatingTimerDuration: 1
   shootingTimerDuration: 1
-  shootingSpeed: 20
+  shootingSpeed: 60
   shotCooldownTimerDuration: 1
   _bouncer: {fileID: 8418660871754591166}
   ballType: 0

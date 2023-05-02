@@ -14,6 +14,9 @@ public class Ball : MonoBehaviour
 
     public int ballType;
 
+    private static float maxVelocitySqr = 100f*100f;
+    private static float highestSeenVelocitySqr = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,25 @@ public class Ball : MonoBehaviour
         // Apply constant gravitational force to bottom of table
         _rigidBody.AddForce( _gravity, ForceMode.Acceleration ); 
 
+
+        /*
+        if(_rigidBody.velocity.sqrMagnitude > highestSeenVelocitySqr)
+        {
+            highestSeenVelocitySqr = _rigidBody.velocity.sqrMagnitude;
+            Debug.Log($"Highest seen velocity - {highestSeenVelocitySqr}");
+        }
+        */
+
+
+        // Trying out a velocity limiter
+        if(_rigidBody.velocity.sqrMagnitude > maxVelocitySqr)
+        {
+            Debug.Log("Ball exceeded max velocity!");
+            // Safest way of doing this is probably applying a negative force (adding drag)
+            _rigidBody.drag = 20;
+        } else {
+            _rigidBody.drag = 0;
+        }
     }
 
     // Remove a ball from the game - the way tells us how to handle it

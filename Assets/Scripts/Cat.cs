@@ -137,6 +137,8 @@ public class Cat : MonoBehaviour
         ball.transform.position = pos;
         ball.gameObject.SetActive(false);
 
+        AudioManager.instance.PlaySound(2);
+
         StartCoroutine(RunEatingState());
 
     }

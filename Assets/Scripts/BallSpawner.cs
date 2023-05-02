@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+// TODO -- use a fixed amount of ball pools and just move/reactive them
+
 public class BallSpawner : MonoBehaviour
 {
     [SerializeField] private Ball ballPrefab;
@@ -27,6 +29,12 @@ public class BallSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // FIX for table resets -- sometimes a table can reset and clear a ball
+        // right as spawner still has reference, we reset to Idle in this case
+        if(_currentBall == null)
+            _state = SpawnerState.Idle;
+
+
         if(_state == SpawnerState.Spawning)
         {
             _spawnTimer -= Time.deltaTime;

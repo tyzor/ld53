@@ -78,6 +78,7 @@ public class BarrelShooter : MonoBehaviour
         {
             _loadedBall.SetActive(true);
             _loadedBall.GetComponent<Rigidbody>().velocity = transform.forward * firePower;
+            AudioManager.instance.PlaySound(0);
         }
 
         _currentCooldown = cooldown;

@@ -51,7 +51,6 @@ public class TableSpawner : MonoBehaviour
         if(type == ObstacleType.Cat)
         {
             return Instantiate<Cat>(catPrefab, transform.position, Quaternion.identity) as T;
-
         }
         else if (type == ObstacleType.Barrel)
         {

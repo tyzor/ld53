@@ -24,6 +24,8 @@ public class Bouncer : MonoBehaviour
             // Lets take the contact normal of the ball and reverse it to apply a force
             other.rigidbody.AddForce(other.contacts[0].normal * -_bounceForce, ForceMode.Impulse);
 
+            AudioManager.instance.PlaySound(1);
+
             // Print how many points are colliding with this transform
             Debug.Log("Points colliding: " + other.contacts.Length);
             // Print the normal of the first point in the collision.
